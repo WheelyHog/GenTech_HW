@@ -1,0 +1,5 @@
+SELECT t1.OrderID, t2.CustomerName, t3.ShipperName
+FROM Orders t1
+JOIN Customers t2 ON t1.CustomerID=t2.CustomerID
+JOIN Shippers t3 ON t1.ShipperID=t3.ShipperID
+WHERE Country='USA'

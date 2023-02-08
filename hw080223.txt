@@ -1,0 +1,37 @@
+create database Ditok;
+
+use ditok;
+
+create table registration(
+id integer primary key auto_increment,
+username varchar(128),
+email varchar(128),
+date datetime,
+password varchar(128),
+isblocked bool
+);
+
+create table upload(
+id integer primary key auto_increment,
+title varchar(128),
+description varchar(255),
+date datetime,
+duration integer,
+user_id integer
+);
+
+create table reaction(
+id integer primary key auto_increment,
+video_id integer,
+user_id integer,
+date datetime,
+type bool
+);
+
+create table comment(
+id integer primary key auto_increment,
+video_id integer,
+user_id integer,
+date datetime,
+text varchar(255)
+);
