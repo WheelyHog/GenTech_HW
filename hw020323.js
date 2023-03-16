@@ -4,6 +4,7 @@ db.getCollection("transactions").find({})
 
 db.transactions.countDocuments(
 {
+    is_completed: true,
     currency: {$ne: 'eur'},
     amount: {$gt: 100}
 }
@@ -26,9 +27,9 @@ db.users.updateMany(
 //(3) разблокировать пользователей, у которых баланс больше нуля или премиальный статус
 db.users.updateMany(
 {
-    balance: {$gt: 0},
-    status: {$eq: 'premium'}
-},
+$or: [{balance: {$gt: 0}}, {status: {$eq: 'premium'}}]
+}, 
+
 {$set: {is_blocked: false}}
 )
 
